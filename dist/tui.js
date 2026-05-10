@@ -45,6 +45,7 @@ const tokens_1 = require("./tokens");
 const syntax_1 = require("./syntax");
 const omniroute_1 = require("./providers/omniroute");
 const ollama_1 = require("./providers/ollama");
+const pollinations_1 = require("./providers/pollinations");
 const planner_1 = require("./planner");
 const skills_1 = require("./skills");
 const web_1 = require("./skills/builtin/web");
@@ -979,6 +980,13 @@ async function main() {
         name: "ollama",
         url: "http://localhost:11434",
         models: ["gemma:4b"],
+    }));
+    providers.set("pollinations", new pollinations_1.PollinationsProvider({
+        name: "pollinations",
+        url: process.env.POLLINATIONS_URL || "https://gen.pollinations.ai",
+        apiKey: process.env.POLLINATIONS_API_KEY || "",
+        models: ["openai", "claude-3.5-sonnet", "gemini-2.0-flash-exp"],
+        defaultModel: "openai",
     }));
     currentProvider = providers.get("omniroute");
     // Load MCP config

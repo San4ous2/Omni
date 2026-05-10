@@ -41,6 +41,10 @@ exports.DEFAULT_MODELS = [
     // Mistral
     { id: "mistral/mistral-large", desc: "Mistral Large            Mistral", provider: "mistral", contextLength: 128000, capabilities: { tools: true, streaming: true } },
     { id: "mistral/codestral", desc: "Codestral                Mistral", provider: "mistral", contextLength: 32000, capabilities: { tools: true, streaming: true } },
+    // Pollinations.ai
+    { id: "pollinations/openai", desc: "OpenAI                   Pollinations", provider: "pollinations", contextLength: 128000, capabilities: { vision: true, tools: true, streaming: true } },
+    { id: "pollinations/claude-3.5-sonnet", desc: "Claude 3.5 Sonnet        Pollinations", provider: "pollinations", contextLength: 200000, capabilities: { vision: true, tools: true, streaming: true } },
+    { id: "pollinations/gemini-2.0-flash-exp", desc: "Gemini 2.0 Flash         Pollinations", provider: "pollinations", contextLength: 1000000, capabilities: { vision: true, tools: true, streaming: true } },
 ];
 async function fetchAvailableModels(baseUrl, apiKey) {
     try {

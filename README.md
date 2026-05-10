@@ -1,6 +1,6 @@
 # omni-agent
 
-A **Claude Code-level** CLI coding agent powered by [OmniRoute](https://github.com/diegosouzapw/OmniRoute) — access free models (Claude via Kiro, Qwen, DeepSeek, Gemini, Kimi) with zero API costs.
+A **Claude Code-level** CLI coding agent with multi-provider support — access free models via [OmniRoute](https://github.com/diegosouzapw/OmniRoute) and [Pollinations.ai](https://pollinations.ai).
 
 ## 🚀 Now with Claude Code Features!
 
@@ -16,15 +16,21 @@ A **Claude Code-level** CLI coding agent powered by [OmniRoute](https://github.c
 ## Prerequisites
 
 1. **Node.js 18+**
-2. **OmniRoute running locally** — install and start it first:
+2. **Choose your provider:**
+   
+   **Option A: OmniRoute (Local)**
    ```bash
    npm install -g omniroute
    omniroute
    ```
-3. **Connect free providers** in the OmniRoute dashboard (http://localhost:20128):
+   Connect free providers in the dashboard (http://localhost:20128):
    - **Kiro** → AWS Builder ID (free unlimited Claude Sonnet/Haiku)
    - **Qwen** → device auth (free unlimited Qwen3-Coder)
    - **Gemini CLI** → Google account (1500 req/day free)
+
+   **Option B: Pollinations.ai (Cloud)**
+   - Get your API key at [enter.pollinations.ai](https://enter.pollinations.ai)
+   - Set environment variable: `POLLINATIONS_API_KEY=your_key_here`
 
 ## Install
 
@@ -58,13 +64,46 @@ omni --model=kr/claude-sonnet-4.5 "refactor src/index.ts"
 | `OMNI_KEY` | `any` | API key (any string works for local OmniRoute) |
 | `OMNI_MODEL` | `kr/claude-sonnet-4.5` | Default model |
 | `AGENT_DIR` | `cwd` | Working directory |
+| `POLLINATIONS_API_KEY` | - | Pollinations.ai API key (get from enter.pollinations.ai) |
+| `POLLINATIONS_URL` | `https://gen.pollinations.ai` | Pollinations.ai base URL |
 
 ## Free Models Available
 
+### Via OmniRoute (Local)
 | Model ID | Provider | Cost |
 |---|---|---|
 | `kr/claude-sonnet-4.5` | Kiro (AWS) | FREE unlimited |
 | `kr/claude-haiku-4.5` | Kiro (AWS) | FREE unlimited |
+
+### Via Pollinations.ai (Cloud)
+| Model ID | Provider | Cost |
+|---|---|---|
+| `pollinations/openai` | Pollinations | Pay-per-use (pollen credits) |
+| `pollinations/claude-3.5-sonnet` | Pollinations | Pay-per-use (pollen credits) |
+| `pollinations/gemini-2.0-flash-exp` | Pollinations | Pay-per-use (pollen credits) |
+
+**Switch providers:** Use `/provider` command to switch between OmniRoute and Pollinations.
+
+## Pollinations.ai Features
+
+When using the Pollinations provider, you get access to additional capabilities:
+
+- **🖼️ Image Generation** - Generate images from text prompts
+- **🔊 Text-to-Speech** - Convert text to natural speech
+- **🎵 Music Generation** - Create music from descriptions
+- **📝 Multiple AI Models** - Access OpenAI, Claude, Gemini, and more through one API
+
+**Example usage:**
+```bash
+# Switch to pollinations provider
+/provider pollinations
+
+# Generate text with Claude
+/model pollinations/claude-3.5-sonnet
+
+# Generate an image (coming soon via CLI commands)
+# Generate audio (coming soon via CLI commands)
+```
 
 ## Commands
 
