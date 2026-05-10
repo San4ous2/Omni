@@ -65,10 +65,6 @@ omni --model=kr/claude-sonnet-4.5 "refactor src/index.ts"
 |---|---|---|
 | `kr/claude-sonnet-4.5` | Kiro (AWS) | FREE unlimited |
 | `kr/claude-haiku-4.5` | Kiro (AWS) | FREE unlimited |
-| `qw/qwen3-coder-plus` | Qwen | FREE unlimited |
-| `gc/gemini-2.5-flash` | Gemini CLI | FREE 1500/day |
-| `if/kimi-k2-thinking` | iFlow/Qoder | FREE unlimited |
-| `if/deepseek-r1` | iFlow/Qoder | FREE unlimited |
 
 ## Commands
 
